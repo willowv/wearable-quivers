@@ -47,25 +47,9 @@ public class QuiverMod implements ModInitializer {
             AdvancedCauldronCompat.register();
         }
 
-        // Migrate: eject any quiver stranded in non-back slots from old builds
         net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((handler, sender, server) ->
             server.execute(() -> {
                 var player = handler.getPlayer();
-                // Migrate: eject quivers stranded in non-chest groups from old saves
-                dev.emi.trinkets.api.TrinketsApi.getTrinketComponent(player).ifPresent(comp -> {
-                    for (var groupEntry : comp.getInventory().entrySet()) {
-                        if (groupEntry.getKey().equals("chest")) continue;
-                        for (var inv : groupEntry.getValue().values()) {
-                            for (int i = 0; i < inv.size(); i++) {
-                                ItemStack s = inv.getStack(i);
-                                if (s.getItem() instanceof QuiverItem) {
-                                    player.giveItemStack(s.copy());
-                                    inv.setStack(i, ItemStack.EMPTY);
-                                }
-                            }
-                        }
-                    }
-                });
                 // Strip Auto Refill enchantment from all quivers if disabled in config
                 if (!net.marewmod.quiver.config.QuiverConfig.get().auto_refill_enchantment) {
                     String arId = new net.minecraft.util.Identifier(MOD_ID, "auto_refill").toString();
