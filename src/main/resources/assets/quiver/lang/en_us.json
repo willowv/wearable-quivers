@@ -36,5 +36,7 @@
   "config.wearable_quivers.rightHip.z": "Z",
 
   "enchantment.quiver.auto_refill": "Auto Refill",
-  "enchantment.quiver.auto_refill.desc": "Automatically pulls arrows from your inventory into the quiver."
+  "enchantment.quiver.auto_refill.desc": "Automatically pulls arrows from your inventory into the quiver.",
+
+  "trinkets.slot.chest.quiver": "Quiver"
 }
