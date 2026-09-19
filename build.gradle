@@ -15,6 +15,17 @@ repositories {
     maven { url 'https://maven.ladysnake.org/releases' }
     maven { url 'https://maven.shedaniel.me/' }
     maven { url 'https://maven.blamejared.com/' }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -35,20 +46,20 @@ dependencies {
     modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
 
     // Advanced Cauldron: optional compat, compile-only
-    modCompileOnly files("C:/Users/mario/Documents/My Minecraft Mods/Advanced Cauldron/build/libs/advanced-cauldron-1.0.0.jar")
+    modCompileOnly "maven.modrinth:f9nYT7Uz:LlG90vyc"
 
     // EMI: optional compat, compile-only
-    modCompileOnly files("C:/Temp/emi.jar")
+    modCompileOnly "maven.modrinth:fRiHVvU7:YbXDHf8W"
 
     // EnchantmentDescriptions: optional compat, compile-only
-    modCompileOnly files("C:/Users/mario/AppData/Roaming/ModrinthApp/profiles/TEST/mods/EnchantmentDescriptions-Fabric-1.20.1-17.1.21.jar")
+    modCompileOnly "maven.modrinth:UVtY3ZAC:YWWrhjUf"
 
     // JEI: optional compat, compile-only
-    modCompileOnly "mezz.jei:jei-1.20.1-fabric:15.20.0.130"
+    modCompileOnly "maven.modrinth:u6dRKJwZ:46OW9urw"
 
     // REI + Architectury: optional compat, compile-only
-    modCompileOnly files("C:/Users/mario/AppData/Roaming/ModrinthApp/profiles/TEST/mods/architectury-9.2.14-fabric.jar")
-    modCompileOnly files("C:/Users/mario/AppData/Roaming/ModrinthApp/profiles/TEST/mods/RoughlyEnoughItems-12.1.785-fabric.jar")
+    modCompileOnly "maven.modrinth:lhGA9TYQ:WbL7MStR"
+    modCompileOnly "maven.modrinth:nfn13YXA:nYcMSS03"
 }
 
 processResources {
