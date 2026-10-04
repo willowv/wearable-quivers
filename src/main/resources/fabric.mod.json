@@ -2,10 +2,13 @@
   "schemaVersion": 1,
   "id": "quiver",
   "version": "${version}",
-  "name": "Wearable Quivers",
+  "name": "Wearable Quivers - Accessories Compat",
   "description": "Adds quivers that store arrows and auto-refill your inventory when equipped as a Trinket.",
   "authors": [
     "Marew"
+  ],
+  "contributors": [
+    "willowv"
   ],
   "license": "MIT",
   "environment": "*",
